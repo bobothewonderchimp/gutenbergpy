@@ -12,6 +12,8 @@ from gutenbergpy.gutenbergcachesettings import GutenbergCacheSettings
 from gutenbergpy.utils                  import Utils
 
 
+print("Using overridden rdfparser.py")
+
 ##
 # The rdf parser
 # noinspection PyClassHasNoInit
@@ -37,6 +39,7 @@ class RdfParser:
         dirs  =  [d for d in listdir(GutenbergCacheSettings.CACHE_RDF_UNPACK_DIRECTORY) if not d.startswith("DELETE")]
         total = len(dirs)
 
+        print("Parsing RDF files, revised version...")
         for idx, dir in enumerate(dirs):
             if not str(dir).isdigit():
                 continue
@@ -45,12 +48,13 @@ class RdfParser:
             file_path = path.join(GutenbergCacheSettings.CACHE_RDF_UNPACK_DIRECTORY,dir,'pg%s.rdf'%(dir))
             doc = etree.parse(file_path,etree.ETCompatXMLParser())
 
+            book_id = len(result.books)+1
             res = Fields.FIELD_COUNT * [-1]
             for idx_field, pt in enumerate(result.field_sets):
                 if not pt.needs_book_id():
                     res[idx_field] = pt.do(doc)
                 else:
-                    res[idx_field] = pt.do(doc,idx+1)
+                    res[idx_field] = pt.do(doc,book_id)
 
             gutenberg_book_id = int(dir)
 
