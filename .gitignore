@@ -1,0 +1,16 @@
+*.pyc
+build/
+GutenbergPy.egg-info/
+dist/
+.idea/gutenbergpy.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+texts/
+gutenbergindex.db
+cache/
+rdf-files.tar.bz2
+memory.pickle
+memusage.txt
