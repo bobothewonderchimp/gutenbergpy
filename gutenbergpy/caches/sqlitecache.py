@@ -7,9 +7,6 @@ from gutenbergpy.gutenbergcachesettings import GutenbergCacheSettings
 import sqlite3
 import os
 
-
-print("Using overridden sqlitecache.py")
-
 ##
 # SQLite cache implementation
 class SQLiteCache(Cache):

@@ -11,9 +11,6 @@ from gutenbergpy.parse.rdfparseresults  import RDFParseResults
 from gutenbergpy.gutenbergcachesettings import GutenbergCacheSettings
 from gutenbergpy.utils                  import Utils
 
-
-print("Using overridden rdfparser.py")
-
 ##
 # The rdf parser
 # noinspection PyClassHasNoInit
